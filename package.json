@@ -1,0 +1,34 @@
+{
+    "name": "drivezy-web-utils",
+    "version": "0.0.1",
+    "description": "Implements all the Utility methods used in web",
+    "main": "build/",
+    "dependencies": {
+        "common-js-util": "^0.1.2",
+        "lodash": "^4.17.10",
+        "react": "^16.4.1",
+        "webpack": "^2.6.1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/shubhamkes/drivezy-web-utils.git"
+    },
+    "license": "MIT",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "webpack --watch",
+        "build": "webpack"
+    },
+    "author": {
+        "name": "Shubham Kesarwani",
+        "email": "shubham.kesarwani89@gmail.com"
+    },
+    "devDependencies": {
+        "babel-cli": "^6.24.1",
+        "babel-core": "^6.24.1",
+        "babel-loader": "^7.0.0",
+        "babel-plugin-transform-object-rest-spread": "^6.23.0",
+        "babel-plugin-transform-react-jsx": "^6.24.1",
+        "babel-preset-env": "^1.5.1"
+    }
+}
