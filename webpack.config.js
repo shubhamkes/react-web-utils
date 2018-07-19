@@ -9,6 +9,7 @@ module.exports = {
         filename: '[name].js',
         libraryTarget: 'umd'
     },
+    devtool: 'source-map',
     module: {
         rules: [
             {
