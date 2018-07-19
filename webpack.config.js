@@ -2,11 +2,13 @@ var path = require('path');
 module.exports = {
     // entry: './src/index.js',
     entry: {
-        './Utils/index': './src/Utils/index.js'
+        './Utils/index': './src/Utils/index.js',
+        './Components/index': './src/Components/index.js'
     },
     output: {
         path: path.resolve(__dirname, 'build'),
         filename: '[name].js',
+        // libraryTarget: 'commonjs2'
         libraryTarget: 'umd'
     },
     devtool: 'source-map',
@@ -19,7 +21,7 @@ module.exports = {
                 use: {
                     loader: 'babel-loader',
                     options: {
-                        presets: ['env']
+                        presets: ['env', 'react', 'stage-2']
                     }
                 }
             }
