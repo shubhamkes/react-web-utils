@@ -7,6 +7,7 @@
         "common-js-util": "^0.1.2",
         "lodash": "^4.17.10",
         "react": "^16.4.1",
+        "react-toastify": "^4.1.0",
         "webpack": "^2.6.1"
     },
     "repository": {
@@ -27,8 +28,11 @@
         "babel-cli": "^6.24.1",
         "babel-core": "^6.24.1",
         "babel-loader": "^7.0.0",
+        "babel-plugin-transform-async-to-generator": "^6.24.1",
         "babel-plugin-transform-object-rest-spread": "^6.23.0",
         "babel-plugin-transform-react-jsx": "^6.24.1",
-        "babel-preset-env": "^1.5.1"
+        "babel-plugin-transform-runtime": "^6.23.0",
+        "babel-preset-env": "^1.5.1",
+        "react-dom": "^16.4.1"
     }
 }

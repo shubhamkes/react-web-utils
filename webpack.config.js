@@ -2,9 +2,7 @@ var path = require('path');
 module.exports = {
     // entry: './src/index.js',
     entry: {
-        './index': './src/index.js',
-        './Generic-Listing/index': './src/Generic-Listing/index.js',
-        './Generic-Detail/index': './src/Generic-Detail/index.js',
+        './Utils/index': './src/Utils/index.js'
     },
     output: {
         path: path.resolve(__dirname, 'build'),
