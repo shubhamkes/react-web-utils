@@ -1,6 +1,6 @@
 {
     "name": "drivezy-web-utils",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "description": "Implements all the Utility methods used in web",
     "main": "build/",
     "dependencies": {
