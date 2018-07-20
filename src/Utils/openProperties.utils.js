@@ -1,5 +1,7 @@
+
 import { ArrayToObject } from 'common-js-util';
-import { Get } from './../Utils/http.utils';
+
+import { Get } from './http.utils';
 import { SetItem, GetItem } from './localStorage.utils';
 import { SetCookie, GetCookie } from './cookie.utils';
 

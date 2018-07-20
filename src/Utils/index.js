@@ -6,4 +6,4 @@ export * from './localStorage.utils';
 export * from './toast.utils';
 export * from './modal.utils';
 export * from './openProperties.utils';
-export * from './preserve.utils';
+export * from './preserveUrl.utils';

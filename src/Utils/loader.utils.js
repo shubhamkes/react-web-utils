@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { SSL_OP_NO_QUERY_MTU } from 'constants';
 
 export class LoaderComponent extends Component {
     constructor(props) {
@@ -67,7 +66,7 @@ export class LoaderComponent extends Component {
 }
 
 export class LoaderUtils {
-    // _currentGlobalLoader = null;
+    _currentGlobalLoader = null;
     static RegisterLoader(ref) {
         this._currentGlobalLoader = ref;
     }
