@@ -1,4 +1,5 @@
 var path = require('path');
+
 module.exports = {
     // entry: './src/index.js',
     entry: {
@@ -15,6 +16,18 @@ module.exports = {
     module: {
         rules: [
             {
+                test: /\.css$/,
+                include: path.resolve(__dirname, 'src'),
+                exclude: /(node_modules|bower_components|build)/,
+                use: [
+                    // fallback to style-loader in development
+                    process.env.NODE_ENV !== 'production' ? 'style-loader' : MiniCssExtractPlugin.loader,
+                    // 'style-loader',
+                    "css-loader",
+                    "sass-loader"
+                ]
+            },
+            {
                 test: /\.js$/,
                 include: path.resolve(__dirname, 'src'),
                 exclude: /(node_modules|bower_components|build)/,
@@ -24,7 +37,7 @@ module.exports = {
                         presets: ['env', 'react', 'stage-2']
                     }
                 }
-            }
+            },
         ]
     },
     externals: {

@@ -1,0 +1,14 @@
+
+.modal-body {
+    background: whitesmoke;
+    .form-settings {
+        position: absolute; // top: -5%;
+        top: -45px;
+        // right: 5%;
+        right: 60px;
+    }
+}
+
+.modal-backdrop.show{
+    opacity: .92;
+}
