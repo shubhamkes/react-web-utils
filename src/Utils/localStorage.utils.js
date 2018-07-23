@@ -11,12 +11,14 @@ try {
     nonVolatile = localStorage.nonVolatile ? JSON.parse(localStorage.nonVolatile) : {};
 } catch (e) { }
 
+const exports = module.exports;
+
 /**
  * Sets item in localStorage under 'content' keyword
  * @param  {string} key
  * @param  {any} payload 
  */
-export function SetItem(key, payload) {
+exports.SetItem = function (key, payload) {
     // let convertedPayload = typeof payload == 'string' ? payload : JSON.stringify(payload);
     content[key] = payload;
     localStorage.content = JSON.stringify(content);
@@ -27,7 +29,7 @@ export function SetItem(key, payload) {
  * @param  {string} key 
  * @param  {boolean} nonVolatile - (optional)
  */
-export function GetItem(key, nonVolatile = false) {
+exports.GetItem = function (key, nonVolatile = false) {
     if (!key) {
         return null;
     }
@@ -44,7 +46,7 @@ export function GetItem(key, nonVolatile = false) {
  * @param  {string} key
  * @param  {any} payload
  */
-export function SetNonVolatileItem(key, payload) {
+exports.SetNonVolatileItem = function (key, payload) {
     nonVolatile[key] = payload;
     localStorage.nonVolatile = JSON.stringify(nonVolatile);
 }
@@ -56,7 +58,7 @@ export function SetNonVolatileItem(key, payload) {
  * @param  {boolean} clearLocalStorage - (optional)
  * @param  {boolean} clearNonVolatileStorage} - (optional)
  */
-export function RemoveItem({ key, clearLocalStorage, clearNonVolatileStorage }) {
+exports.RemoveItem = function ({ key, clearLocalStorage, clearNonVolatileStorage }) {
     if (key) {
         localStorage.removeItem(key);
     } else if (clearLocalStorage) {

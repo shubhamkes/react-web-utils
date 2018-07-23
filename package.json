@@ -1,52 +1,56 @@
 {
-    "name": "drivezy-web-utils",
-    "version": "0.0.6",
-    "description": "Implements all the Utility methods used in web",
-    "main": "build/",
-    "dependencies": {
-        "@atlaskit/flag": "^8.1.4",
-        "@atlaskit/tooltip": "^10.3.1",
-        "common-js-util": "^0.1.2",
-        "lodash": "^4.17.10",
-        "react": "^16.4.1",
-        "react-toastify": "^4.1.0",
-        "reactstrap": "^6.3.0",
-        "styled-components": "^3.3.3",
-        "webpack": "^2.6.1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/shubhamkes/drivezy-web-utils.git"
-    },
-    "license": "MIT",
-    "scripts": {
-        "build-css": "node-sass-chokidar --include-path ./src src/ -o src/",
-        "test": "echo \"Error: no test specified\" && exit 1",
-        "start": "webpack --watch",
-        "build": "npm run build-css && webpack"
-    },
-    "author": {
-        "name": "Shubham Kesarwani",
-        "email": "shubham.kesarwani89@gmail.com"
-    },
-    "devDependencies": {
-        "babel-cli": "^6.24.1",
-        "babel-core": "^6.24.1",
-        "babel-loader": "^7.0.0",
-        "babel-plugin-transform-async-to-generator": "^6.24.1",
-        "babel-plugin-transform-class-properties": "^6.24.1",
-        "babel-plugin-transform-object-rest-spread": "^6.23.0",
-        "babel-plugin-transform-react-jsx": "^6.24.1",
-        "babel-plugin-transform-runtime": "^6.23.0",
-        "babel-preset-env": "^1.5.1",
-        "babel-preset-react": "^6.24.1",
-        "babel-preset-stage-2": "^6.24.1",
-        "css-loader": "^1.0.0",
-        "mini-css-extract-plugin": "^0.4.1",
-        "node-sass": "^4.9.2",
-        "node-sass-chokidar": "^1.3.3",
-        "react-dom": "^16.4.1",
-        "sass-loader": "^7.0.3",
-        "style-loader": "^0.21.0"
+  "name": "drivezy-web-utils",
+  "version": "0.0.9",
+  "description": "a",
+  "main": "build/",
+  "size-limit": [
+    {
+      "path": "build/"
     }
+  ],
+  "scripts": {
+    "size": "size-limit",
+    "build-css": "node-sass-chokidar --include-path ./src src/ -o src/",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "webpack-dev-server --mode development",
+    "transpile": "npm run build-css && babel src -d build --copy-files",
+    "prepublishOnly": "npm run transpile",
+    "build": "webpack --mode production",
+    "deploy": "gh-pages -d examples/build",
+    "publish-demo": "npm run build && npm run deploy"
+  },
+  "peerDependencies": {
+    "react": "^16.3.0",
+    "react-dom": "^16.3.0"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.5",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "css-loader": "^1.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass-chokidar": "^1.3.3",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "size-limit": "^0.18.5",
+    "style-loader": "^0.21.0",
+    "webpack": "^4.16.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.5"
+  },
+  "dependencies": {
+    "@atlaskit/flag": "^9.0.1",
+    "@atlaskit/tooltip": "^12.0.1",
+    "common-js-util": "^0.1.5",
+    "lodash": "^4.17.10",
+    "react-toastify": "^4.1.0",
+    "reactstrap": "^6.3.0",
+    "styled-components": "^3.3.3"
+  }
 }

@@ -16,7 +16,7 @@
 import React, { Component } from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 
-import './modalWrapper.component.css';
+// import './modalWrapper.component.css';
 
 export class ModalWrapper extends Component {
     constructor(props) {
@@ -63,11 +63,8 @@ export class ModalWrapper extends Component {
             <div className="modals-wrapper">
                 {
                     modals.map((modal, key) =>
-                        <Modal key={key} size={size} isOpen={modal.isVisible} toggle={() => {
-                            console.log(modal, key);
-                            this.closeModal(modal, key)
-                        }
-                        } className={modal.className} backdrop={this.state.backdrop}>
+                        <Modal key={key} size={size} isOpen={modal.isVisible}
+                            className={modal.className} backdrop={this.state.backdrop}>
                             {
                                 modal.modalHeader ?
                                     <ModalHeader toggle={() => {

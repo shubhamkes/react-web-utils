@@ -1,17 +1,17 @@
 {
     "presets": [
-        "env"
+        [
+            "env",
+            {
+                "targets": {
+                    "node": "current"
+                }
+            }
+        ],
+        "react"
     ],
     "plugins": [
         "transform-object-rest-spread",
-        "transform-react-jsx",
-        [
-            "transform-runtime",
-            {
-                "polyfill": false,
-                "regenerator": true
-            }
-        ],
-        ["transform-class-properties", { "spec": true }]
+        "transform-class-properties"
     ]
 }
