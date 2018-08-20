@@ -12,8 +12,8 @@ export class ConfirmModal extends Component {
         }
     }
 
-    confirmModal({ message, callback }) {
-        this.setState({ isVisible: true, message, callback });
+    confirmModal({ message, callback, title }) {
+        this.setState({ isVisible: true, message, callback, title });
     }
 
     confirm = (callback) => {
@@ -47,12 +47,12 @@ export class ConfirmModal extends Component {
     }
 
     render() {
-        const { isVisible } = this.state;
+        const { isVisible, title } = this.state;
         return (
             <div>
                 <Modal size="md" isOpen={isVisible} toggle={this.toggleModal} className="form-settings-modal">
                     <ModalHeader toggle={this.toggleModal}>
-                        Confirm
+                        {title || 'Confirm'}
                     </ModalHeader>
                     <ModalBody>
                         {this.modalData({ message: this.state.message, callback: this.state.callback })}

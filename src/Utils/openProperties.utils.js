@@ -2,7 +2,7 @@
 import { ArrayToObject } from 'common-js-util';
 
 import { Get } from './http.utils';
-import { SetItem, GetItem } from './localStorage.utils';
+import { SetItem, GetItem } from 'storage-utility';
 import { SetCookie, GetCookie } from './cookie.utils';
 
 import { OpenPropertiesEndPoint } from './../Constants/api.constants';
