@@ -47,9 +47,14 @@ export class ModalWrapper extends Component {
     //         onClose({ ...args });
     //     }
     // }
-    closeModal = (modal, key) => {
-        let { modals } = this.state;
-        modals.splice(key, 1);
+    closeModal = ({ key }) => {
+        let { modals = [] } = this.state;
+        if (typeof key == 'undefined' || typeof key == 'object' || key == null) {
+            // key = modals.length;
+            modals.pop();
+        } else {
+            modals.splice(key, 1);
+        }
 
         this.setState({ modals });
     }

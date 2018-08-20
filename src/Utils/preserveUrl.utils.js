@@ -6,7 +6,7 @@
  */
 
 import { Location } from './location.utils';
-import { SetItem, GetItem } from './localStorage.utils';
+import { SetItem, GetItem } from 'storage-utility';
 
 let currentState = { ...window.location };
 

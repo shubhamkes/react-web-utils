@@ -1,6 +1,6 @@
 {
   "name": "drivezy-web-utils",
-  "version": "0.0.9",
+  "version": "0.0.27",
   "description": "a",
   "main": "build/",
   "size-limit": [
@@ -51,6 +51,7 @@
     "lodash": "^4.17.10",
     "react-toastify": "^4.1.0",
     "reactstrap": "^6.3.0",
+    "storage-utility": "0.0.7",
     "styled-components": "^3.3.3"
   }
 }

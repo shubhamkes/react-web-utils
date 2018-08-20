@@ -2,6 +2,7 @@
  * Implements Location service same as angular have
  *************************************************/
 // import History from './history.utils';
+import { IsObjectHaveKeys } from 'common-js-util';
 
 /**
  * takes search string and converts to corresponding object
@@ -107,9 +108,19 @@ export class Location {
      * @param  {string} {url}
      * @param  {string} {method} - used to select method for navigation, can be push, goBack (for pop operation), replace
      */
-    static navigate({ url, method = 'push' }) {
+    static navigate({ url, method = 'push', queryParam }, e = {}) {
+        if (IsObjectHaveKeys(queryParam)) {
+            url += SerializeObj(queryParam);
+        }
         const { history: History } = this.historyFetchMethod();
+
+        if (method == 'push' && e && (e.metaKey || e.ctrlKey)) {
+            var win = window.open(url, '_blank');
+            win.focus();
+            return;
+        }
         History[method](url);
+
     }
 
     static back() {
