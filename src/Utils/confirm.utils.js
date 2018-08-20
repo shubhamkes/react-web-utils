@@ -16,10 +16,11 @@ module.exports.ConfirmUtils = class {
     _currentGlobalLoader = null;
     static RegisterConfirm(ref) {
         this._currentGlobalLoader = ref;
+
     }
-    static confirmModal({ message, callback }) {
+    static confirmModal({ message, callback, input }) {
         if (this._currentGlobalLoader && this._currentGlobalLoader.confirmModal) {
-            this._currentGlobalLoader.confirmModal({ message, callback });
+            this._currentGlobalLoader.confirmModal({ message, callback, input });
         }
     }
 }

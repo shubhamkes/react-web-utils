@@ -2,8 +2,18 @@
     display: flex;
     justify-content: flex-end;
     flex-direction: column;
-    .modal-body {
-
+    .modal-body {}
+    .box {
+        margin-left: 15px;
+        .text-box {
+            margin-top: 6px;
+            width: 100%;
+            height: 36px;
+            padding: 15px;
+            margin-left: 12px;
+            border-radius: 6px;
+            border-color: #5f9ea063;
+        }
     }
     .modal-footer {
         display: flex;
@@ -14,5 +24,5 @@
                 margin: 0px 3px;
             }
         }
-    }  
+    }
 }
