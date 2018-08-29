@@ -14,9 +14,12 @@ export function PreserveState() {
     const location = window.location;
 
     if (currentState.pathname != location.pathname) { // if current state is changed
-        currentState =  { ...window.location }; // set new url as current state
+        currentState = { ...window.location }; // set new url as current state
         const search = GetItem(location.pathname); // fetch search string for new url to append on url bar
-        SetItem(currentState.pathname, currentState.search);
+        if (currentState.search) {
+            SetItem(currentState.pathname, currentState.search);
+            return;
+        }
         if (search) {
             Location.navigate({ method: 'replace', url: location.pathname + search });
         }
