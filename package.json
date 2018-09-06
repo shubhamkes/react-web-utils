@@ -1,6 +1,6 @@
 {
   "name": "drivezy-web-utils",
-  "version": "0.0.31",
+  "version": "0.0.33",
   "description": "a",
   "main": "build/",
   "size-limit": [
@@ -31,6 +31,7 @@
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-class-properties": "^6.24.1",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^1.0.0",
@@ -52,7 +53,7 @@
     "lodash": "^4.17.10",
     "react-toastify": "^4.1.0",
     "reactstrap": "^6.3.0",
-    "storage-utility": "0.0.7",
+    "storage-utility": "0.0.16",
     "styled-components": "^3.3.3"
   }
 }
