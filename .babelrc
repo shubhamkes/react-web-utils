@@ -3,12 +3,16 @@
         [
             "env",
             {
-                "targets": {
-                    "node": "current"
-                }
+                "targets": [
+                    {
+                        "name": "node",
+                        "version": 6
+                    }
+                ]
             }
         ],
-        "react"
+        "react",
+        "stage-0"
     ],
     "plugins": [
         "transform-object-rest-spread",

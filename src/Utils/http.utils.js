@@ -263,6 +263,10 @@ function createHeader(obj) {
     if (fireToken) {
         headers['Firebase-Id'] = fireToken;
     }
+
+    if (obj.resetHeader) {
+        return obj.headers || {};
+    }
     // if headers are not passed
     if (!obj.headers) {
         return headers;

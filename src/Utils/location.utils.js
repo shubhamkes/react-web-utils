@@ -1,7 +1,6 @@
 /**************************************************
  * Implements Location service same as angular have
  *************************************************/
-// import History from './history.utils';
 import { IsObjectHaveKeys } from 'common-js-util';
 
 /**
@@ -12,11 +11,13 @@ import { IsObjectHaveKeys } from 'common-js-util';
 export function GenerateObjectFromUrlParams(searchString) {
     if (searchString) {
         return (searchString).replace(/(^\?)/, '').split("&").map(function (n) { return n = n.split(/=(.+)/), this[n[0]] = n[1], this }.bind({}))[0];
-        // return (searchString).replace(/(^\?)/, '').split("&").map(function (n) { return n = n.split("="), this[n[0]] = n[1], this }.bind({}))[0];
     } else {
         return {};
     }
 }
+
+
+
 
 export function SerializeObj(obj) {
     const queryString = Object.entries(obj).map(i => [i[0], encodeURIComponent(i[1])].join('=')).join('&');
@@ -26,12 +27,6 @@ export function SerializeObj(obj) {
 }
 
 export function GetUrlParams(props) {
-    // let urlParams = GenerateObjectFromUrlParams(decodeURIComponent(props.location.search));
-    // let hash = window.location.hash.replace('#', '');
-
-    // if (hash) {
-    //     urlParams = urlParams[hash] ? JSON.parse(urlParams[hash]) : {};
-    // }
     return {
         queryString: Location.search(),
         params: props.match.params
@@ -61,11 +56,6 @@ export class Location {
         }
         if (!obj) {
             hash = window.location.hash.replace('#', '');
-            // if (hash) {
-            //     const params = urlParams[hash] ? JSON.parse(urlParams[hash]) : {};
-            //     console.log(params);
-            //     return params;
-            // }
             return urlParams;
         }
 
@@ -84,12 +74,10 @@ export class Location {
 
         if (!Object.keys(urlParams).length || (!Object.keys(finalObj).length)) {
             History.push(location.pathname);
-            // History.push(props.match.url);
             return;
         }
         if (History) {
             let obj = {};
-            // obj = urlParams;
             if (hash) {
                 obj[hash] = JSON.stringify(urlParams);
             } else {

@@ -1,6 +1,6 @@
 {
   "name": "drivezy-web-utils",
-  "version": "0.0.28",
+  "version": "0.0.31",
   "description": "a",
   "main": "build/",
   "size-limit": [
@@ -47,6 +47,7 @@
   "dependencies": {
     "@atlaskit/flag": "^9.0.1",
     "@atlaskit/tooltip": "^12.0.1",
+    "babel-preset-stage-0": "^6.24.1",
     "common-js-util": "^0.1.5",
     "lodash": "^4.17.10",
     "react-toastify": "^4.1.0",
