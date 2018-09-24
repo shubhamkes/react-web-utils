@@ -41,14 +41,18 @@ export class ToastContainer extends Component {
     }
 
     /** method for dismiss the notification */
-    dismissFlag = () => {
-        this.setState(state => ({ flags: state.flags.slice(1) }));
+    dismissFlag = (index = -1) => {
+        this.state.flags.splice(-1, 1);
+        this.setState({ flags: this.state.flags });
+        // this.setState(state => ({ flags: state.flags.splice(index, 1) }));
     };
 
     /** end method */
     addFlag = (flags, params) => {
         flags.unshift(params);
         this.setState({ flags: flags });
+        let currentFlag = flags; // in order to prevent last flags index to be picked on setTimeout method
+        setTimeout(() => this.dismissFlag(currentFlag.length - 1), 3000);
     };
 
     /**
