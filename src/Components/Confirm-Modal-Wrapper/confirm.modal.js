@@ -63,8 +63,8 @@ export class ConfirmModal extends Component {
                     </div>
                 </div> */}
                 <div className="modal-footer confirm-footer">
-                    <button className="btn footer-button btn-secondary" onClick={(e) => this.closeModal()}>Cancel</button>
-                    <button className="btn footer-button btn-success" onClick={(e) => this.confirm(callback(input))}>Confirm</button>
+                    <button className="btn btn-sm btn-secondary" onClick={(e) => this.closeModal()}>Cancel</button>
+                    <button className="btn btn-sm btn-success" onClick={(e) => this.confirm(callback(input))}>Confirm</button>
                 </div>
             </div>
         )
