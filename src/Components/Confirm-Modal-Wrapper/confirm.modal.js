@@ -9,7 +9,7 @@ export class ConfirmModal extends Component {
         this.state = {
             isVisible: false,
             message: '',
-            input:[]
+            input: []
         }
     }
 
@@ -32,7 +32,12 @@ export class ConfirmModal extends Component {
     modalData = ({ message, callback, input }) => {
         return (
             <div className="confirm-modal">
-                <div className="modal-body">
+                <div className="card confirm-text">
+                    <div className="card-body confirm-content">
+                        {message}
+                    </div>
+                </div>
+                {/* <div className="modal-body">
                     <p>
                         {message}
                     </p>
@@ -50,12 +55,16 @@ export class ConfirmModal extends Component {
                         </div>
                         )
                     })
-                }
-                <div className="modal-footer curved-bottom">
+                } */}
+                {/* <div className="modal-footer curved-bottom">
                     <div className="action-button">
                         <button className="btn btn-secondary" onClick={(e) => this.closeModal()}>Cancel</button>
                         <button className="btn btn-danger" onClick={(e) => this.confirm(callback(input))}>Confirm</button>
                     </div>
+                </div> */}
+                <div className="modal-footer confirm-footer">
+                    <button className="btn footer-button btn-secondary" onClick={(e) => this.closeModal()}>Cancel</button>
+                    <button className="btn footer-button btn-success" onClick={(e) => this.confirm(callback(input))}>Confirm</button>
                 </div>
             </div>
         )
