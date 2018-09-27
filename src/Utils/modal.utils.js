@@ -1,3 +1,5 @@
+import React, { Component } from 'react';
+import InfoModal from './../Components/Info-Modal/infoModal.component';
 
 export class ModalManager {
     _currentGlobalLoader = null;
@@ -12,4 +14,12 @@ export class ModalManager {
     static closeModal({ ...args }) {
         this._currentGlobalLoader.closeModal({ ...args });
     }
+    static info({ description, headerText }) {
+        ModalManager.openModal({
+            headerText: headerText,
+            modalBody: () => <InfoModal description={description} />
+        })
+    }
 }
+
+// const modalManager = new ModalManager();
