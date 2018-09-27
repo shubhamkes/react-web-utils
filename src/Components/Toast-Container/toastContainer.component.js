@@ -48,11 +48,11 @@ export class ToastContainer extends Component {
     };
 
     /** end method */
-    addFlag = (flags, params) => {
+    addFlag = (flags, params = {}) => {
         flags.unshift(params);
         this.setState({ flags: flags });
         let currentFlag = flags; // in order to prevent last flags index to be picked on setTimeout method
-        setTimeout(() => this.dismissFlag(currentFlag.length - 1), 3000);
+        setTimeout(() => this.dismissFlag(currentFlag.length - 1), params.duration || 3000);
     };
 
     /**
