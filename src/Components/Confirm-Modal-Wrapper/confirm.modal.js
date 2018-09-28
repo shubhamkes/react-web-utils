@@ -73,7 +73,7 @@ export class ConfirmModal extends Component {
     render() {
         const { isVisible, input, title } = this.state;
         return (
-            <div>
+            <div className="modal-block">
                 <Modal size="md" isOpen={isVisible} toggle={this.toggleModal} className="form-settings-modal">
                     <ModalHeader toggle={this.toggleModal}>
                         {title || 'Confirm'}

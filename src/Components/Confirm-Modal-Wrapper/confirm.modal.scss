@@ -1,25 +1,27 @@
-.modal {
-    .modal-dialog {
-        .modal-content {
-            .modal-body {
-                padding: 0px!important;
-                .confirm-modal {
-                    width: 100%;
-                    background-color: #f5f5f5 !important;
-                    .confirm-text {
-                        font-size: 15px;
-                        padding: 8px 20px;
-                        background: none !important;
-                        border: none !important;
-                        .confirm-content {
-                            background-color: white !important;
-                            border-radius: 4px;
+.modal-block {
+    .modal {
+        .modal-dialog {
+            .modal-content {
+                .modal-body {
+                    padding: 0px !important;
+                    .confirm-modal {
+                        width: 100%;
+                        background-color: #f5f5f5 !important;
+                        .confirm-text {
+                            font-size: 15px;
+                            padding: 8px 20px;
+                            background: none !important;
+                            border: none !important;
+                            .confirm-content {
+                                background-color: white !important;
+                                border-radius: 4px;
+                            }
                         }
-                    }
-                    .confirm-footer {
-                        padding: 13px 7px;
-                        text-align: right;
-                        background: white;
+                        .confirm-footer {
+                            padding: 13px 7px;
+                            text-align: right;
+                            background: white;
+                        }
                     }
                 }
             }
