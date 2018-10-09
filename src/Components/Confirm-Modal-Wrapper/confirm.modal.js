@@ -78,7 +78,7 @@ export class ConfirmModal extends Component {
                     <ModalHeader toggle={this.toggleModal}>
                         {title || 'Confirm'}
                     </ModalHeader>
-                    <ModalBody>
+                    <ModalBody className="confirm">
                         {this.modalData({ message: this.state.message, callback: this.state.callback, input })}
                     </ModalBody>
                 </Modal>

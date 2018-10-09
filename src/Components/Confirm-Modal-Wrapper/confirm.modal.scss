@@ -1,8 +1,9 @@
+
 .modal {
         .modal-dialog {
             .modal-content {
-                .modal-body {
-                    padding: 0px !important;
+                .confirm{
+                    padding: 0px;
                     .confirm-modal {
                         width: 100%;
                         background-color: #f5f5f5 !important;
@@ -26,3 +27,4 @@
             }
         }
     }
+
