@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import InfoModal from './../Components/Info-Modal/infoModal.component';
+import SummaryModal from './../Components/Summary-Modal/summaryModal.component';
 
 export class ModalManager {
     _currentGlobalLoader = null;
@@ -18,6 +19,12 @@ export class ModalManager {
         ModalManager.openModal({
             headerText: headerText,
             modalBody: () => <InfoModal description={description} />
+        })
+    }
+    static summary({ title, data }) {
+        ModalManager.openModal({
+            headerText: title || 'SUMMARY MODAL',
+            modalBody: () => <SummaryModal data={data} />
         })
     }
 }
