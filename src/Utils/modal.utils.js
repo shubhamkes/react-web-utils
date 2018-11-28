@@ -22,6 +22,10 @@ export class ModalManager {
         })
     }
 
+    /* Method for showing list of option and return selected one
+    *  Three parameters
+    *  descrption: text information, options:array of objects and a Callback method
+    * */
     static getOption({ description, options, callback }) {
         ModalManager.openModal({
             headerText: "Choose an option",
