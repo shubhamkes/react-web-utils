@@ -1,0 +1,48 @@
+.list-options{
+    .body-options{
+        .menu-options {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 10px 10px;
+            background: #F9F9FC;
+            .card {
+                border-radius: 5px;
+                background: #fff;
+                width: 100px;
+                height:100px;
+                margin: 5px;
+                display: flex;
+                align-items: center;
+                justify-content: space-evenly;
+                flex-direction: column;
+                cursor: pointer;
+                .icon{
+                    color:#eaeef0;
+                }
+               }              
+               .card:hover{
+                border-color: #0d32d6;
+               }
+               .card.selected{
+                border-color: #046609;
+                color:	#006400;
+                background-color: rgb(221, 250, 221);
+                .icon{
+                    color:	#006400;
+                }
+               }
+           }
+           .footer {
+            display: flex;
+            justify-content: flex-end;
+            width: 100%;
+            padding: 10px 20px;
+            background-color: #fff; }
+            .footer button {
+              margin: 0 5px; 
+            }          
+    }
+      #desc{
+        padding: 10px 0px 0px 15px;
+    }
+}
