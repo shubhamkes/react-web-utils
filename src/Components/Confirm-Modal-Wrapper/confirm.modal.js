@@ -19,6 +19,8 @@ export class ConfirmModal extends Component {
 
     confirm = (callback) => {
         this.setState({ isVisible: false });
+
+        callback();
     }
 
     toggle = () => {
@@ -64,7 +66,7 @@ export class ConfirmModal extends Component {
                 </div> */}
                 <div className="modal-footer confirm-footer">
                     <button className="btn btn-sm btn-secondary" onClick={(e) => this.closeModal()}>Cancel</button>
-                    <button className="btn btn-sm btn-success" onClick={(e) => this.confirm(callback(input))}>Confirm</button>
+                    <button className="btn btn-sm btn-success" onClick={(e) => this.confirm()}>Confirm</button>
                 </div>
             </div>
         )
