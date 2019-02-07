@@ -9,18 +9,25 @@ export default class OptionsModal extends Component {
         this.state = {
             options: this.props.options,
             description: this.props.description,
-            isSelected: '',
-            selected: {},
-            callback: this.props.callback
+            selected: [],
+            callback: this.props.callback,
+            field: this.props.field
         };
     }
 
-    onSelecting(option, key) {
-        this.setState({ isSelected: key, selected: option });
+    onSelecting(option) {
+        const { selected } = this.state;
+        let index = selected.indexOf(option);
+        if (index === -1 && (option.isSelected == true)) {
+            selected.push(option);
+        } else {
+            selected.splice(index, 1);
+        }
+        this.setState({ selected });
     }
 
     render() {
-        const { options, isSelected, selected, callback, description } = this.state;
+        const { options, isSelected, selected, callback, description, field } = this.state;
         return (
             <div className="list-options">
                 {options.length > 0 ?
@@ -33,9 +40,9 @@ export default class OptionsModal extends Component {
                                 {
                                     options.map((option, key) => {
                                         return (
-                                            <div key={key} className={isSelected === key ? "card selected" : "card"} onClick={() => this.onSelecting(option, key)}>
-                                                <i className={isSelected === key ? option.icon : `${option.icon} icon`} aria-hidden="true"></i>
-                                                <p>{option.option}</p>
+                                            <div key={key} className={option.isSelected ? "card selected" : "card"} onClick={() => { option.isSelected = !option.isSelected; this.onSelecting(option) }}>
+                                                <i className={option.isSelected ? option.icon : `${option.icon} icon`} aria-hidden="true"></i>
+                                                <p>{option[field]}</p>
                                             </div>
                                         )
                                     })

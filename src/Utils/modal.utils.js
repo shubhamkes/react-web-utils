@@ -26,10 +26,10 @@ export class ModalManager {
     *  Three parameters
     *  descrption: text information, options:array of objects and a Callback method
     * */
-    static getOption({ description, options, callback }) {
+    static getOption({ description, options, callback, field }) {
         ModalManager.openModal({
             headerText: "Choose an option",
-            modalBody: () => <OptionsModal description={description} options={options} callback={callback} />
+            modalBody: () => <OptionsModal description={description} options={options} callback={callback} field={field} />
         })
     }
 }
