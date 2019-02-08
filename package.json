@@ -1,7 +1,7 @@
 {
   "name": "drivezy-web-utils",
-  "version": "0.0.44",
-  "description": "a",
+  "version": "0.0.45",
+  "description": "Web utility, provides loader, modal and many other utility for web for react project",
   "main": "build/",
   "size-limit": [
     {
