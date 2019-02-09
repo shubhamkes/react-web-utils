@@ -15,7 +15,7 @@
 
 import React, { Component } from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
+import { IsUndefined } from 'common-js-util';
 // import './modalWrapper.component.css';
 
 export class ModalWrapper extends Component {
@@ -36,17 +36,24 @@ export class ModalWrapper extends Component {
     openModal = ({ ...args }) => {
         let { modals } = this.state;
         args.isVisible = true;
+        args.backdrop = !IsUndefined(args.backdrop) ? args.backdrop : true;
         var index = modals.push({ ...args })
         this.setState({ modals });
     }
 
-    // closeModal = ({ ...args }) => {
-    //     const { onClose } = this.state;
-    //     this.setState({ isVisible: false });
-    //     if (typeof onClose == 'function') {
-    //         onClose({ ...args });
-    //     }
-    // }
+
+    /**
+     * @param  {object} modal
+     * this method help us to close the modal when click outside of modal
+     * this method will work according to value of variable: backdrop
+     */
+    toggle(modal, key) {
+        const { modals } = this.state;
+        modal.isVisible = !modal.isVisible;
+        modals[key] = modal;
+        this.setState({ modals });
+    }
+
     closeModal = ({ key }) => {
         let { modals = [] } = this.state;
         if (typeof key == 'undefined' || typeof key == 'object' || key == null) {
@@ -68,8 +75,8 @@ export class ModalWrapper extends Component {
             <div className="modals-wrapper">
                 {
                     modals.map((modal, key) =>
-                        <Modal key={key} size={size} isOpen={modal.isVisible}
-                            className={modal.className} backdrop={this.state.backdrop}>
+                        <Modal key={key} size={size} toggle={() => this.toggle(modal, key)} isOpen={modal.isVisible}
+                            className={modal.className} backdrop={modal.backdrop}>
                             {
                                 modal.modalHeader ?
                                     <ModalHeader toggle={() => {
@@ -88,9 +95,7 @@ export class ModalWrapper extends Component {
 
                             {
                                 modal.modalBody &&
-                                // <ModalBody>
                                 modal.modalBody()
-                                // </ModalBody>
                             }
 
                             {
