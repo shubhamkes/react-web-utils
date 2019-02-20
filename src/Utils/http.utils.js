@@ -201,18 +201,65 @@ function ApiCall({ url, method, headers, body, resolve = defaultResolve, reject 
     if (body) { // if body is attached
         postDict.body = body;
     }
-    return fetch(url, { headers, body, method, params, credentials: 'include' })
-        // .then((response) => {
-        //     console.log('sfjsbhf', response);
-        //     return resolve(response.json());
-        // });
-        .then((response) => response.json())
-        .then((response) => {
-            return resolve(response, hideMessage, hideLoader, { url, body, persist, callback, extraParams });
-        })
-        .catch((error) => {
-            return reject(error, hideMessage, hideLoader, { url, body, persist, callback, extraParams });
-        });
+    // return fetch(url, { headers, body, method, params, credentials: 'include' })
+    //     // .then((response) => {
+    //     //     console.log('sfjsbhf', response);
+    //     //     return resolve(response.json());
+    //     // });
+    //     .then((response) => response.json())
+    //     .then((response) => {
+    //         return resolve(response, hideMessage, hideLoader, { url, body, persist, callback, extraParams });
+    //     })
+    //     .catch((error) => {
+    //         return reject(error, hideMessage, hideLoader, { url, body, persist, callback, extraParams });
+    //     });
+
+    // Making an xml-http call 
+    return httpRequest({ url, method, headers, body, resolve, reject, params, hideMessage, hideLoader, persist, callback, extraParams });
+}
+
+
+
+/**
+ * 
+ * Promisified XML http request , alternative for fetch
+ * 
+ * @param {*} payload 
+ */
+function httpRequest({ url, method, headers, body, resolve = defaultResolve, reject = defaultReject, params, hideMessage, hideLoader, persist, callback, extraParams }) {
+
+    return new Promise((resolvePromise, rejectPromise) => {
+        let xhr = new XMLHttpRequest();
+        xhr.withCredentials = true;
+        xhr.open(method || "GET", url);
+
+        //Send the proper header information along with the request
+        xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+
+
+        if (headers) {
+            Object.keys(headers).forEach(key => {
+                // xhr.setRequestHeader(key, headers[key]);
+            });
+        }
+        xhr.onload = () => {
+            if (xhr.status >= 200 && xhr.status < 300) {
+
+                // resolve(JSON.parse(xhr.response)).then(()=>{
+
+                // })
+                resolvePromise(resolve(JSON.parse(xhr.response), hideMessage, hideLoader, { url, body, persist, callback, extraParams }));
+                // resolve(JSON.parse(xhr.response), hideMessage, hideLoader, { url, body, persist, callback, extraParams });
+
+            } else {
+                rejectPromise(reject(xhr.statusText));
+            }
+        };
+        xhr.onerror = (error) => reject(error, hideMessage, hideLoader, { url, body, persist, callback, extraParams });
+
+
+        xhr.send(body);
+    });
 }
 
 
