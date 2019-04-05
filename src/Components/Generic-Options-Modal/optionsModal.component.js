@@ -11,7 +11,7 @@ export default class OptionsModal extends Component {
             description: this.props.description,
             selected: [],
             callback: this.props.callback,
-            field: this.props.field
+            template: this.props.template,
         };
     }
 
@@ -27,7 +27,7 @@ export default class OptionsModal extends Component {
     }
 
     render() {
-        const { options, isSelected, selected, callback, description, field } = this.state;
+        const { options, isSelected, selected, callback, description, template } = this.state;
         return (
             <div className="list-options">
                 {options.length > 0 ?
@@ -41,8 +41,7 @@ export default class OptionsModal extends Component {
                                     options.map((option, key) => {
                                         return (
                                             <div key={key} className={option.isSelected ? "card selected" : "card"} onClick={() => { option.isSelected = !option.isSelected; this.onSelecting(option) }}>
-                                                <i className={option.isSelected ? option.icon : `${option.icon} icon`} aria-hidden="true"></i>
-                                                <p>{option[field]}</p>
+                                                {template(option)}
                                             </div>
                                         )
                                     })
