@@ -13,8 +13,8 @@ export class ConfirmModal extends Component {
         }
     }
 
-    confirmModal({ message, callback, title = '', input = [] }) {
-        this.setState({ isVisible: true, message, callback, title, input });
+    confirmModal({ message, callback, title = '', input = [], template, isEmpty }) {
+        this.setState({ isVisible: true, message, callback, title, input, template, isEmpty });
     }
 
     confirm = (callback) => {
@@ -30,12 +30,12 @@ export class ConfirmModal extends Component {
         this.setState({ isVisible: false })
     }
 
-    modalData = ({ message, callback, input }) => {
+    modalData = ({ message, callback, input, template, isEmpty }) => {
         return (
             <div className="confirm-modal">
                 <div className="card confirm-text">
                     <div className="card-body confirm-content">
-                        {message}
+                        {template ? template : message}
                     </div>
                 </div>
                 {/* <div className="modal-body">
@@ -65,22 +65,22 @@ export class ConfirmModal extends Component {
                 </div> */}
                 <div className="modal-footer confirm-footer">
                     <button className="btn btn-sm btn-secondary" onClick={(e) => this.closeModal()}>Cancel</button>
-                    <button className="btn btn-sm btn-success" onClick={(e) => this.confirm(callback)}>Confirm</button>
+                    <button disabled={isEmpty} className="btn btn-sm btn-success" onClick={(e) => this.confirm(callback)}>Confirm</button>
                 </div>
             </div>
         )
     }
 
     render() {
-        const { isVisible, input, title } = this.state;
+        const { isVisible, input, title, template, isEmpty } = this.state;
         return (
             <div className="modal-block">
-                <Modal size="md" isOpen={isVisible} toggle={this.toggleModal} className="form-settings-modal">
+                <Modal size={template ? "xl" : "md"} isOpen={isVisible} toggle={this.toggleModal} className="form-settings-modal">
                     <ModalHeader toggle={this.toggleModal}>
                         {title || 'Confirm'}
                     </ModalHeader>
                     <ModalBody className="confirm">
-                        {this.modalData({ message: this.state.message, callback: this.state.callback, input })}
+                        {this.modalData({ message: this.state.message, callback: this.state.callback, input, template, isEmpty })}
                     </ModalBody>
                 </Modal>
                 {/* <ModalWrapper
