@@ -35,7 +35,8 @@ export class ConfirmModal extends Component {
             <div className="confirm-modal">
                 <div className="card confirm-text">
                     <div className="card-body confirm-content">
-                        {template ? template : message}
+                        <div className={template ? 'header' : ''}>{message ? message : ''}</div>
+                        <div> {template ? template : ''}</div>
                     </div>
                 </div>
                 {/* <div className="modal-body">
