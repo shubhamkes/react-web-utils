@@ -51,8 +51,10 @@ export default class OptionsModal extends Component {
 
                         <div className="footer">
                             <button className="btn btn-primary btn-sm" onClick={() => ModalManager.closeModal()}>Cancel</button>
-                            <button className="btn btn-success btn-sm" onClick={() => callback(selected)} >Submit</button>
-
+                            <button className="btn btn-success btn-sm" onClick={() => {
+                                ModalManager.closeModal()
+                                callback(selected)
+                            }} >Submit</button>
                         </div>
                     </div>
                     : <p id="desc">Oops ! No options are available</p>}
