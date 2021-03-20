@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './optionsModal.component.css';
-import { ModalManager } from 'drivezy-web-utils/build/Utils/modal.utils';
+import { ModalManager } from 'react-web-utils/build/Utils/modal.utils';
 export default class OptionsModal extends Component {
 
     constructor(props) {
