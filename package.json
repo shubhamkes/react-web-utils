@@ -1,6 +1,6 @@
 {
     "name": "react-web-utility",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "description": "Web utility, provides loader, modal and many other utility for web for react project",
     "main": "build/",
     "size-limit": [
@@ -54,6 +54,6 @@
         "react-toastify": "^4.1.0",
         "reactstrap": "^6.3.0",
         "storage-utility": "0.0.16",
-        "styled-components": "^3.3.3"
+        "styled-components": "^5.2.3"
     }
 }
