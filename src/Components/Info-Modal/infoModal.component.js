@@ -4,7 +4,7 @@
  */
 
 import React from 'react';
-import { ModalManager } from 'react-web-utils/build/Utils';
+import { ModalManager } from 'react-web-utility/build/Utils';
 import './infoModal.component.css';
 
 export default class InfoModal extends React.Component {

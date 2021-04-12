@@ -12,7 +12,7 @@
 // import classNames from 'classnames';
 
 // import { Get, Put, Delete, BuildUrlForGetCall } from 'common-js-util';
-// import { ToastNotifications } from 'react-web-utils/build/Utils';
+// import { ToastNotifications } from 'react-web-utility/build/Utils';
 
 // import { GetDefaultOptions } from './../../Utils/genericListing.utils';
 // import { ConfirmUtils } from './../../Utils/confirm-utils/confirm.utils';

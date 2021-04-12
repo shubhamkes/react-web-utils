@@ -59,7 +59,7 @@ export class Location {
             return urlParams;
         }
 
-        const { history: History } = this.historyFetchMethod();
+        const { history: History } = this.historyFetchMethod;
         const finalObj = {};
 
         Object.keys(obj).forEach((key) => {
@@ -100,7 +100,7 @@ export class Location {
         if (IsObjectHaveKeys(queryParam)) {
             url += SerializeObj(queryParam);
         }
-        const { history: History } = this.historyFetchMethod();
+        const { history: History } = this.historyFetchMethod;
 
         if (method == 'push' && e && (e.metaKey || e.ctrlKey)) {
             var win = window.open(url, '_blank');

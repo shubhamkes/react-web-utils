@@ -1,6 +1,6 @@
 {
-    "name": "react-web-utils",
-    "version": "0.1.0",
+    "name": "react-web-utility",
+    "version": "1.0.2",
     "description": "Web utility, provides loader, modal and many other utility for web for react project",
     "main": "build/",
     "size-limit": [
