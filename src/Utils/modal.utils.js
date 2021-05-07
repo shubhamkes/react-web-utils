@@ -9,12 +9,19 @@ export class ModalManager {
     }
     static openModal({ ...args }) {
         if (this._currentGlobalLoader) {
-            this._currentGlobalLoader.openModal({ ...args });
+            return this._currentGlobalLoader.openModal({ ...args });
         }
     }
     static closeModal({ ...args }) {
         this._currentGlobalLoader.closeModal({ ...args });
     }
+
+    static updateModal( index, { ...args } ) {
+        if (this._currentGlobalLoader && this._currentGlobalLoader.updateModal ) {
+            return this._currentGlobalLoader.updateModal( index, { ... args });
+        }
+    }
+
     static info({ description, headerText }) {
         ModalManager.openModal({
             headerText: headerText,
